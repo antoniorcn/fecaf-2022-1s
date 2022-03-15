@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageBackground, Text, View, StyleSheet } from 'react-native';
+import { Button, ImageBackground, Text, TextInput, View, StyleSheet } from 'react-native';
 import imagePet from './assets/pets.png';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -9,7 +9,6 @@ const Tab = createBottomTabNavigator();
 const ListarPets = () => {
   return (
     <View>
-      <Text>Lista dos Pets</Text>
       <View style={estilos.pet}>
         <Text style={estilos.nomePet}>Toto</Text>
         <Text style={estilos.dadosPet}>Vira Lata - 25.4kg - 10/07/2020</Text>
@@ -20,6 +19,18 @@ const ListarPets = () => {
       </View>      
     </View>
   )
+}
+
+const CadastrarPet = () => { 
+  return (
+    <View>
+      <TextInput placeholder="Nome do Pet" style={estilos.input}/>
+      <TextInput placeholder="Raça" style={estilos.input}/>
+      <TextInput placeholder="Peso" style={estilos.input}/>
+      <TextInput placeholder="Nascimento" style={estilos.input}/>
+      <Button title="Cadastrar"/>
+    </View>
+  );
 }
 
 export default function App() {
@@ -33,7 +44,7 @@ export default function App() {
       <View style={estilos.conteudo}>
       <NavigationContainer>
         <Tab.Navigator>
-          <Tab.Screen name="Cadastro"/>
+          <Tab.Screen name="Cadastro" component={CadastrarPet}/>
           <Tab.Screen name="Listar" component={ListarPets}/>          
         </Tab.Navigator>
       </NavigationContainer>
@@ -73,5 +84,12 @@ const estilos = StyleSheet.create({
     paddingBottom: 20,
     borderBottomWidth: 2,
     borderBottomColor: "darkgray"
+  },
+
+  input: { 
+    marginTop: 50,
+    paddingBottom: 5,
+    borderBottomColor: 'darkgray',
+    borderBottomWidth: 2
   }
 });
