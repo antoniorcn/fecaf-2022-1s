@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const Tab = createBottomTabNavigator();
 
-const Formulario = () => { 
+const Formulario = (props) => { 
     // const v = useState("");
     // const nome = v[0];
     // const setNome = v[1];
@@ -27,7 +27,7 @@ const Formulario = () => {
     );
 }
 
-const Listar = () => { 
+const Listar = (props) => { 
     const listaDisplay = [];
     for (let i=0; i < props.lista.lenght; i++) { 
         listaDisplay.push(<Text>{props.lista[i]}</Text>);
@@ -57,4 +57,4 @@ export default () => {
             </NavigationContainer>
         </View>
     );
-}https://github.com/antoniorcn/fecaf-2022-1s
+}
